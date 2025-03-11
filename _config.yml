@@ -1,3 +1,13 @@
 encoding: utf-8
-safe: true
 lang: "ru"
+safe: true
+
+# Jekyll-специфичные настройки
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Плагины
+plugins:
+  - jekyll-seo-tag
