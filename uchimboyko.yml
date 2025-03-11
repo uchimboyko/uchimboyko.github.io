@@ -1,0 +1,125 @@
+<yml_catalog date="2025-03-11 19:51">
+<shop>
+<name>uchimboyko.ru</name>
+<company>1-я международная детская школа шахмат "Учим Бойко"</company>
+<url>https://uchimboyko.ru/</url>
+<email>Uchimboyko@mail.ru</email>
+<picture>https://i.postimg.cc/pTsdfNC6/1x1.png</picture>
+<description>Детская школа шахмат «Учим Бойко» в онлайн формате</description>
+<currencies>
+<currency id="RUR" rate="1"/>
+</currencies>
+
+
+
+<!-- Наборы курсов, на которые будет ссылка в описании курса -->
+<sets>
+<set id="s1">
+<name>4 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#1</url>
+</set>
+
+<sets>
+<set id="s2">
+<name>8 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#2</url>
+</set>
+
+<sets>
+<set id="s3">
+<name>24 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#3</url>
+</set>
+
+<sets>
+<set id="s4">
+<name>4 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#4</url>
+</set>
+
+
+<sets>
+<set id="s5">
+<name>8 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#5</url>
+</set>
+
+
+<sets>
+<set id="s6">
+<name>24 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#6</url>
+</set>
+
+
+<sets>
+<set id="s7">
+<name>4 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#7</url>
+</set>
+
+
+<sets>
+<set id="s8">
+<name>8 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#8</url>
+</set>
+
+
+<sets>
+<set id="s9">
+<name>24 индивидуальных онлайн-занятия по шахматам</name>
+<url>https://uchimboyko.ru/#9</url>
+</set>
+
+
+<offers>
+<offer id="en1">
+<name>Курс 1</name>
+<url>https://site.ru/eng/1/</url>
+<categoryId>20001</categoryId>
+<!-- Обязательная ссылка на категорию. Можно указать до 2х значений категории -->
+<set-ids>s1,s2</set-ids>
+<!-- Можно указать несколько наборов через запятую -->
+<!-- Общая цена курса -->
+<price>15000</price>
+<currencyId>RUR</currencyId>
+<param name="Цена по скидке">9999</param>
+<param name="Оплата в рассрочку" unit="месяц">3</param>
+<!-- Рассрочка общей цены на период. Возможные значения для unit - месяц, день -->
+<!-- Цена за месяц -->
+<param name="Ежемесячная цена">15000</param>
+<param name="Ежемесячная цена по скидке">9999</param>
+<!-- Сроки курсов -->
+<param name="Продолжительность" unit="месяц">1</param>
+<!-- Программа обучения -->
+<param name="План" order="1" unit="Unit 1">First Meeting</param>
+<param name="План" order="2" unit="Unit 2">People</param>
+<param name="План" order="3" unit="Unit 3">Daily life</param>
+<!-- Формат и методы обучения -->
+<param name="Формат обучения">С преподавателем</param>
+<!-- Возможные значения - "Самостоятельно", "Самостоятельно с наставником", "В группе с наставником", "С преподавателем" -->
+<param name="Есть вебинары">false</param>
+<param name="Есть домашние работы">true</param>
+<param name="Есть видеоуроки">true</param>
+<param name="Есть текстовые уроки">true</param>
+<param name="Есть тренажеры">true</param>
+<param name="Есть сообщество">true</param>
+<!-- Параметры курса -->
+<param name="Сложность">Для опытных</param>
+<!-- Возможные значения - "Для новичков" или "Для опытных" -->
+<param name="Тип обучения">Курс</param>
+<!-- Возможные значения - "Курс" или "Профессия" -->
+<param name="Есть бесплатная часть">true</param>
+<param name="Результат обучения">Сертификат</param>
+<!-- Возможные значения - "Сертификат", "Диплом", "Удостоверение" -->
+<param name="Часы в неделю">4</param>
+<!-- Описание курса -->
+<picture>https://site.ru/imag/kurs1.png</picture>
+<description>*Описание курса с указанием особенностей*</description>
+</offer>
+
+
+</offers>
+</shop>
+</yml_catalog>
