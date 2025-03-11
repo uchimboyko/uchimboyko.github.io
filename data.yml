@@ -1,0 +1,98 @@
+<yml_catalog date="2025-03-11 19:51">
+    <shop>
+      
+       <name>uchimboyko.ru</name>
+        <company>1-я международная детская школа шахмат «Учим Бойко»</company>
+        <url>https://uchimboyko.ru/</url>
+        <email>Uchimboyko@mail.ru</email>
+        <picture>https://i.postimg.cc/pTsdfNC6/1x1.png</picture>
+        <description>Детская школа шахмат «Учим Бойко» в онлайн формате</description>
+        <currencies>
+            <currency id="RUR" rate="1"/>
+        </currencies>
+        
+        <offers>
+            <offer id="1">
+                <name>4 индивидуальных онлайн-занятий по шахматам</name>
+                <url>https://uchimboyko.ru/#1?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/65d7yPRC/1.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>5990</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="2">
+                <name>8 индивидуальных онлайн-занятий по шахматам</name>
+                <url>https://uchimboyko.ru/#2?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/6qV95DS3/2.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>9960</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="3">
+                <name>24 индивидуальных онлайн-занятий по шахматам</name>
+                <url>https://uchimboyko.ru/#3?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/wTHqbjys/3.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>25950</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="4">
+                <name>4 индивидуальных онлайн-занятия по шахматам</name>
+                <url>https://uchimboyko.ru/#4?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/MKD6kJV3/4.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>3980</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="5">
+                <name>8 индивидуальных онлайн-занятий по шахматам</name>
+                <url>https://uchimboyko.ru/#5?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/LsrRk9F5/5.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>6880</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="6">
+                <name>24 индивидуальных онлайн-занятий по шахматам</name>
+                <url>https://uchimboyko.ru/#6?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/YqbHnfBJ/6.png</picture>
+                <description>2 раза в неделю по 45 минут</description>
+                <price>17980</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="7">
+                <name>4 индивидуальных онлайн-занятия по шахматам для детей 4-5 лет</name>
+                <url>https://uchimboyko.ru/#7?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/XYpTsR8C/7.png</picture>
+                <description>2 раза в неделю по 30 минут</description>
+                <price>4390</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="8">
+                <name>8 индивидуальных онлайн-занятий по шахматам для детей 4-5 лет</name>
+                <url>https://uchimboyko.ru/#8?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/Y9fV4MpJ/8.png</picture>
+                <description>2 раза в неделю по 30 минут</description>
+                <price>7950</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+            <offer id="9">
+                <name>24 индивидуальных онлайн-занятий по шахматамдля для детей 4-5 лет</name>
+                <url>https://uchimboyko.ru/#9?utm_source=yandex_tovar_feed_vebmaster</url>
+                <picture>https://i.postimg.cc/L60Wgyp6/9.png</picture>
+                <description>2 раза в неделю по 30 минут</description>
+                <price>20950</price>
+                <currencyId>RUB</currencyId>
+                <email>Uchimboyko@mail.ru</email>
+            </offer>
+        </offers>
+    </shop>
+</yml_catalog>
