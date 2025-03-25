@@ -22,6 +22,7 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>5990</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
                 <param name="Продолжительность">3 часа</param>
@@ -36,9 +37,10 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>9960</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">6 часов</param>
+                <param name="Продолжительность" unit="час">6</param>
             </offer>
             
             <offer id="3">
@@ -49,9 +51,10 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>25950</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">18 часов</param>
+                <param name="Продолжительность" unit="час">18</param>
             </offer>
             <offer id="4">
                 <name>4 групповых онлайн-занятия по шахматам</name>
@@ -61,9 +64,10 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>3980</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">4 часа</param>
+                <param name="Продолжительность" unit="час">4</param>
             </offer>
             <offer id="5">
                 <name>8 групповых онлайн-занятий по шахматам</name>
@@ -73,9 +77,10 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>6880</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">6 часов</param>
+                <param name="Продолжительность" unit="час">6</param>
             </offer>
             <offer id="6">
                 <name>24 групповых онлайн-занятий по шахматам</name>
@@ -85,9 +90,10 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>17980</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">18 часов</param>
+                <param name="Продолжительность" unit="час">18</param>
             </offer>
             <offer id="7">
                 <name>4 индивидуальных онлайн-занятия по шахматам для детей 4-5 лет</name>
@@ -97,9 +103,10 @@
                 <description>2 раза в неделю по 30 минут</description>
                 <price>4390</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="2">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">2 часа</param>
+                <param name="Продолжительность" unit="час">2</param>
             </offer>
             <offer id="8">
                 <name>8 индивидуальных онлайн-занятий по шахматам для детей 4-5 лет</name>
@@ -109,22 +116,24 @@
                 <description>2 раза в неделю по 30 минут</description>
                 <price>7950</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="4">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">4 часа</param>
+                <param name="Продолжительность" unit="час">4</param>
             </offer>
             
             <offer id="9">
-                <name>24 индивидуальных онлайн-занятий по шахматамдля для детей 4-5 лет</name>
+                <name>24 индивидуальных онлайн-занятий по шахматам для детей 4-5 лет</name>
                 <url>https://uchimboyko.ru/#9?utm_source=yandex_tovar_feed_vebmaster</url>
                 <categoryId>800</categoryId>
                 <picture>https://i.postimg.cc/L60Wgyp6/9.png</picture>
                 <description>2 раза в неделю по 30 минут</description>
                 <price>20950</price>
                 <currencyId>RUR</currencyId>
+                <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="12">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">12 часов</param>
+                <param name="Продолжительность" unit="час">12</param>
             </offer>
         </offers>
     </shop>
