@@ -22,7 +22,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>5990</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">3 часа</param>
@@ -37,7 +36,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>9960</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">6 часов</param>
@@ -51,7 +49,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>25950</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">18 часов</param>
@@ -64,7 +61,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>3980</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">4 часа</param>
@@ -77,7 +73,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>6880</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">6 часов</param>
@@ -90,7 +85,6 @@
                 <description>2 раза в неделю по 45 минут</description>
                 <price>17980</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">18 часов</param>
@@ -103,7 +97,6 @@
                 <description>2 раза в неделю по 30 минут</description>
                 <price>4390</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="2">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">2 часа</param>
@@ -116,7 +109,6 @@
                 <description>2 раза в неделю по 30 минут</description>
                 <price>7950</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="4">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">4 часа</param>
@@ -130,7 +122,6 @@
                 <description>2 раза в неделю по 30 минут</description>
                 <price>20950</price>
                 <currencyId>RUR</currencyId>
-                <email>Uchimboyko@mail.ru</email>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="12">Обучение шахматам онлайн></param>
                 <param name="Продолжительность">12 часов</param>
