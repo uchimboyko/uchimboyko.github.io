@@ -25,7 +25,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
-                <param name="Продолжительность">3 часа</param>
+                <param name="Продолжительность" unit="час">3</param>
                
             </offer>
             
