@@ -25,7 +25,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">3</param>
+                <param name="Продолжительность" unit="часы">3</param>
                
             </offer>
             
@@ -40,7 +40,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">6</param>
+                <param name="Продолжительность" unit="часы">6</param>
             </offer>
             
             <offer id="3">
@@ -54,7 +54,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">18</param>
+                <param name="Продолжительность" unit="часы">18</param>
             </offer>
             <offer id="4">
                 <name>4 групповых онлайн-занятия по шахматам</name>
@@ -67,7 +67,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">4</param>
+                <param name="Продолжительность" unit="часы">4</param>
             </offer>
             <offer id="5">
                 <name>8 групповых онлайн-занятий по шахматам</name>
@@ -80,7 +80,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="6">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">6</param>
+                <param name="Продолжительность" unit="часы">6</param>
             </offer>
             <offer id="6">
                 <name>24 групповых онлайн-занятий по шахматам</name>
@@ -93,7 +93,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">В группе с наставником</param>
                 <param name="План" order="1" unit="Блок 1" hours="18">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">18</param>
+                <param name="Продолжительность" unit="часы">18</param>
             </offer>
             <offer id="7">
                 <name>4 индивидуальных онлайн-занятия по шахматам для детей 4-5 лет</name>
@@ -106,7 +106,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="2">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">2</param>
+                <param name="Продолжительность" unit="часы">2</param>
             </offer>
             <offer id="8">
                 <name>8 индивидуальных онлайн-занятий по шахматам для детей 4-5 лет</name>
@@ -119,7 +119,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="4">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">4</param>
+                <param name="Продолжительность" unit="часы">4</param>
             </offer>
             
             <offer id="9">
@@ -133,7 +133,7 @@
                 <param name="Сложность">Для новичков</param>
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="12">Обучение шахматам онлайн</param>
-                <param name="Продолжительность" unit="час">12</param>
+                <param name="Продолжительность" unit="часы">12</param>
             </offer>
         </offers>
     </shop>
