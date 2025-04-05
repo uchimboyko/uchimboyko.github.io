@@ -26,7 +26,6 @@
                 <param name="Формат обучения">С преподавателем</param>
                 <param name="План" order="1" unit="Блок 1" hours="3">Обучение шахматам онлайн</param>
                 <param name="Продолжительность" unit="часы">3</param>
-               
             </offer>
             
             <offer id="2">
