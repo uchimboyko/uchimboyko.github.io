@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Политика конфиденциальности — Учим Бойко</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='4' fill='%23131a16'/><path d='M9 3v2h2V3H9zm4 0v2h2V3h-2z M7 5h10l-1 4h2v2H6V9h2L7 5z M8 11h8v4l-1 2H9l-1-2v-4z M7 17h10v2H7v-2zm-1 2h12v2H6v-2z' fill='none' stroke='%23c8a468' stroke-width='1.5'/></svg>" />
+<meta name="description" content="Политика обработки персональных данных международной детской школы шахмат «Учим Бойко»." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================================
+   TOKENS (matches main site)
+   ============================================================= */
+:root{
+  --ink:        #0d1411;
+  --ink-2:      #131a16;
+  --ink-3:      #1c241f;
+  --board:      #243029;
+  --moss:       #3a5448;
+  --cream:      #f3ecdc;
+  --cream-2:    #e8dfc9;
+  --paper:      #faf6ec;
+  --gold:       #c8a468;
+  --gold-light: #e2c282;
+  --gold-deep:  #9c7d44;
+  --burgundy:   #7a2b2b;
+  --rule:       rgba(243,236,220,.14);
+  --rule-strong:rgba(243,236,220,.32);
+
+  --f-display: "Fraunces", "Times New Roman", serif;
+  --f-body:    "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1280px;
+  --gutter:    clamp(20px, 4vw, 56px);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--f-body);
+  font-weight:400;
+  line-height:1.55;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:1000;
+  opacity:.06;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+
+.eyebrow{
+  font-family:var(--f-body);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+}
+.eyebrow::before{
+  content:"";
+  width:36px; height:1px;
+  background:var(--gold);
+  display:inline-block;
+}
+
+/* =============================================================
+   NAV (identical to main site)
+   ============================================================= */
+.nav{
+  position:fixed; top:0; left:0; right:0;
+  z-index:50;
+  padding:18px 0;
+  transition:background .3s ease, padding .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+  backdrop-filter:blur(0px);
+}
+.nav.scrolled{
+  background:rgba(13,20,17,.78);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--rule);
+  padding:12px 0;
+}
+.nav-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:32px;
+}
+.brand{
+  display:flex; align-items:center; gap:12px;
+  flex-shrink:0;
+}
+.brand-mark{
+  width:38px; height:38px;
+  display:grid; place-items:center;
+  border:1px solid var(--gold);
+  color:var(--gold);
+}
+.brand-mark svg{ width:22px; height:22px; }
+.brand-text{ display:flex; flex-direction:column; line-height:1.05; }
+.brand-name{
+  font-family:var(--f-display);
+  font-size:18px;
+  font-weight:400;
+  letter-spacing:.02em;
+}
+.brand-tag{
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--cream-2);
+  opacity:.65;
+}
+
+.nav-menu{
+  display:flex; gap:36px;
+  list-style:none; padding:0; margin:0;
+}
+.nav-menu a{
+  font-size:13px;
+  letter-spacing:.04em;
+  color:var(--cream-2);
+  position:relative;
+  padding:6px 0;
+  transition:color .25s ease;
+}
+.nav-menu a::after{
+  content:""; position:absolute;
+  left:0; right:100%; bottom:0;
+  height:1px;
+  background:var(--gold);
+  transition:right .35s ease;
+}
+.nav-menu a:hover{ color:var(--cream); }
+.nav-menu a:hover::after{ right:0; }
+
+.nav-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px;
+  letter-spacing:.04em;
+  color:var(--ink);
+  background:var(--gold);
+  padding:11px 22px;
+  border-radius:999px;
+  transition:background .25s ease, transform .25s ease;
+  font-weight:600;
+}
+.nav-cta:hover{ background:var(--gold-light); transform:translateY(-1px); }
+
+.nav-burger{ display:none; }
+
+/* =============================================================
+   LEGAL HERO
+   ============================================================= */
+.legal-hero{
+  position:relative;
+  padding:170px 0 90px;
+  overflow:hidden;
+}
+.legal-hero-bg{
+  position:absolute; inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+.legal-hero-bg::before{
+  content:"";
+  position:absolute;
+  right:-12%; top:-18%;
+  width:60vh; height:60vh;
+  max-width:640px; max-height:640px;
+  background:
+    repeating-conic-gradient(
+      var(--ink-2) 0% 25%,
+      var(--ink-3) 25% 50%
+    );
+  background-size: calc(60vh / 8) calc(60vh / 8);
+  border:1px solid var(--rule);
+  transform:rotate(-10deg);
+  opacity:.4;
+  mask-image:radial-gradient(ellipse at 70% 30%, transparent 0%, black 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 70% 30%, transparent 0%, black 70%);
+}
+.legal-hero-inner{
+  position:relative; z-index:2;
+  max-width:760px;
+}
+.legal-hero h1{
+  font-family:var(--f-display);
+  font-weight:320;
+  line-height:.98;
+  letter-spacing:-.02em;
+  font-size:clamp(32px, 5vw, 60px);
+  margin:22px 0 0;
+  color:var(--cream);
+}
+.legal-hero h1 em{
+  font-style:italic;
+  color:var(--gold-light);
+  font-weight:320;
+}
+.legal-hero-meta{
+  margin-top:24px;
+  display:flex; gap:28px; flex-wrap:wrap;
+  font-size:13px;
+  color:var(--cream-2);
+  opacity:.7;
+}
+.legal-hero-meta strong{ color:var(--gold-light); font-weight:600; }
+.legal-hero-sub{
+  margin-top:22px;
+  max-width:600px;
+  font-size:16px;
+  line-height:1.65;
+  color:var(--cream-2);
+  opacity:.85;
+}
+
+/* =============================================================
+   LEGAL CONTENT
+   ============================================================= */
+.legal{
+  position:relative;
+  padding:0 0 120px;
+}
+.legal-layout{
+  display:grid;
+  grid-template-columns: .8fr 2.2fr;
+  gap:64px;
+  align-items:start;
+}
+
+/* sticky table of contents */
+.legal-toc{
+  position:sticky;
+  top:120px;
+  border-top:1px solid var(--rule);
+  padding-top:24px;
+}
+.legal-toc-label{
+  font-size:10px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
+}
+.legal-toc ol{
+  list-style:none; margin:0; padding:0;
+  counter-reset:toc;
+}
+.legal-toc li{
+  counter-increment:toc;
+  border-bottom:1px solid var(--rule);
+}
+.legal-toc a{
+  display:flex; gap:12px;
+  padding:12px 0;
+  font-size:13px;
+  line-height:1.4;
+  color:var(--cream-2);
+  opacity:.75;
+  transition:opacity .25s ease, color .25s ease;
+}
+.legal-toc a::before{
+  content: counter(toc, decimal-leading-zero);
+  font-family:var(--f-display);
+  font-style:italic;
+  color:var(--gold);
+  flex-shrink:0;
+}
+.legal-toc a:hover{ opacity:1; color:var(--cream); }
+
+/* article blocks */
+.legal-block{
+  padding:44px 0;
+  border-bottom:1px solid var(--rule);
+  scroll-margin-top:110px;
+}
+.legal-block:first-child{ padding-top:0; }
+.legal-block-num{
+  font-family:var(--f-display);
+  font-style:italic;
+  font-size:16px;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+.legal-block h2{
+  font-family:var(--f-display);
+  font-weight:340;
+  font-size:clamp(22px, 2.6vw, 30px);
+  line-height:1.15;
+  letter-spacing:-.01em;
+  margin:0 0 20px;
+  color:var(--cream);
+}
+.legal-block h2 em{ font-style:italic; color:var(--gold-light); font-weight:340; }
+.legal-block p{
+  font-size:15px;
+  line-height:1.75;
+  color:var(--cream-2);
+  opacity:.85;
+  margin:0 0 16px;
+}
+.legal-block p:last-child{ margin-bottom:0; }
+.legal-block strong{ color:var(--cream); font-weight:600; }
+
+.legal-list{
+  list-style:none; padding:0; margin:20px 0;
+}
+.legal-list li{
+  padding:16px 0;
+  border-top:1px solid var(--rule);
+  display:flex; gap:18px;
+  font-size:15px;
+  line-height:1.65;
+  color:var(--cream-2);
+  opacity:.85;
+}
+.legal-list li:last-child{ border-bottom:1px solid var(--rule); }
+.legal-list-marker{
+  font-family:var(--f-display);
+  font-style:italic;
+  color:var(--gold);
+  font-size:16px;
+  flex-shrink:0;
+  width:20px;
+}
+
+.legal-note{
+  margin-top:24px;
+  padding:22px 26px;
+  border:1px solid var(--rule-strong);
+  background:linear-gradient(180deg, rgba(243,236,220,.04), rgba(243,236,220,.01));
+  position:relative;
+}
+.legal-note::before{
+  content:"";
+  position:absolute; top:-1px; left:-1px;
+  width:22px; height:22px;
+  border-top:1px solid var(--gold);
+  border-left:1px solid var(--gold);
+}
+.legal-note p{ margin:0; font-size:14px; opacity:.9; }
+.legal-note p + p{ margin-top:10px; }
+
+.legal-contacts{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.legal-contact{
+  border:1px solid var(--rule);
+  padding:18px 20px;
+}
+.legal-contact-label{
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+.legal-contact a, .legal-contact span{
+  font-size:14px;
+  color:var(--cream);
+}
+
+/* =============================================================
+   FOOTER (identical to main site)
+   ============================================================= */
+footer{
+  background:var(--ink);
+  padding:80px 0 32px;
+  border-top:1px solid var(--rule);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:60px;
+  margin-bottom:60px;
+}
+.footer-brand{
+  font-family:var(--f-display);
+  font-weight:340;
+  font-size:28px;
+  line-height:1.1;
+  letter-spacing:-.01em;
+  margin:0 0 16px;
+}
+.footer-brand em{ font-style:italic; color:var(--gold-light); }
+.footer-tag{
+  font-size:13px;
+  color:var(--cream-2);
+  opacity:.65;
+  max-width:280px;
+  line-height:1.6;
+}
+.footer-col h4{
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 20px;
+  font-weight:500;
+}
+.footer-col ul{
+  list-style:none; padding:0; margin:0;
+}
+.footer-col li{
+  padding:6px 0;
+  font-size:14px;
+  color:var(--cream-2);
+  opacity:.75;
+}
+.footer-col a:hover{ color:var(--cream); }
+
+.footer-bottom{
+  border-top:1px solid var(--rule);
+  padding-top:24px;
+  display:flex; justify-content:space-between;
+  font-size:12px;
+  color:var(--cream-2);
+  opacity:.5;
+}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+@media (max-width: 1024px){
+  .nav-menu{ display:none; }
+  .nav-burger{ display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--rule-strong); color:var(--cream); }
+  .legal-layout{ grid-template-columns:1fr; gap:32px; }
+  .legal-toc{ position:relative; top:0; }
+  .legal-toc ol{ display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:40px; }
+  .legal-contacts{ grid-template-columns:1fr; }
+}
+@media (max-width: 640px){
+  .legal-hero{ padding:130px 0 60px; }
+  .legal-toc ol{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  .footer-bottom{ flex-direction:column; gap:8px; }
+  .legal-block{ padding:32px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 3v2h2V3H9zm4 0v2h2V3h-2z"/>
+          <path d="M7 5h10l-1 4h2v2H6V9h2L7 5z"/>
+          <path d="M8 11h8v4l-1 2H9l-1-2v-4z"/>
+          <path d="M7 17h10v2H7v-2zm-1 2h12v2H6v-2z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Учим Бойко</span>
+        <span class="brand-tag">Est. Школа · Шахматы</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html#about">О школе</a></li>
+      <li><a href="index.html#stories">Достижения</a></li>
+      <li><a href="index.html#coaches">Тренеры</a></li>
+      <li><a href="index.html#pricing">Тарифы</a></li>
+    </ul>
+    <a href="index.html#cta" class="nav-cta">
+      Бесплатное занятие
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <button class="nav-burger" aria-label="menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     LEGAL HERO
+     ============================================================ -->
+<section class="legal-hero">
+  <div class="legal-hero-bg"></div>
+  <div class="container legal-hero-inner">
+    <span class="eyebrow">Юридический документ</span>
+    <h1>Политика <em>конфиденциальности</em></h1>
+    <p class="legal-hero-sub">Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта международной детской спортивной школы шахмат «Учим Бойко» в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+    <div class="legal-hero-meta">
+      <span>Дата публикации: <strong>02.07.2026</strong></span>
+      <span>Действует с: <strong>02.07.2026</strong></span>
+      <span>Оператор: <strong>Учим Бойко</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEGAL CONTENT
+     ============================================================ -->
+<section class="legal">
+  <div class="container legal-layout">
+
+    <!-- TOC -->
+    <aside class="legal-toc">
+      <div class="legal-toc-label">Содержание</div>
+      <ol>
+        <li><a href="#general">Общие положения</a></li>
+        <li><a href="#terms">Термины и определения</a></li>
+        <li><a href="#collect">Какие данные мы собираем</a></li>
+        <li><a href="#purpose">Цели обработки данных</a></li>
+        <li><a href="#legal-basis">Правовые основания обработки</a></li>
+        <li><a href="#processing">Порядок обработки и защиты</a></li>
+        <li><a href="#transfer">Передача данных третьим лицам</a></li>
+        <li><a href="#storage">Сроки хранения данных</a></li>
+        <li><a href="#rights">Права субъекта персональных данных</a></li>
+        <li><a href="#cookies">Файлы cookie и аналитика</a></li>
+        <li><a href="#children">Данные несовершеннолетних</a></li>
+        <li><a href="#changes">Изменение Политики</a></li>
+        <li><a href="#contacts">Контакты оператора</a></li>
+      </ol>
+    </aside>
+
+    <!-- ARTICLES -->
+    <div class="legal-articles">
+
+      <article class="legal-block" id="general">
+        <div class="legal-block-num">01</div>
+        <h2>Общие <em>положения</em></h2>
+        <p>Настоящая Политика обработки персональных данных (далее — «Политика») действует в отношении всей информации, которую сайт «Учим Бойко» (далее — «Сайт», «Школа», «мы»), расположенный по адресу uchimboyko.ru, может получить о пользователе во время использования Сайта, его сервисов, программ и продуктов.</p>
+        <p>Использование Сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки его персональных данных. В случае несогласия с этими условиями пользователь должен воздержаться от использования Сайта.</p>
+      </article>
+
+      <article class="legal-block" id="terms">
+        <div class="legal-block-num">02</div>
+        <h2>Термины и <em>определения</em></h2>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span><strong>Персональные данные</strong> — любая информация, относящаяся прямо или косвенно к определённому или определяемому физическому лицу (субъекту персональных данных).</span></li>
+          <li><span class="legal-list-marker">—</span><span><strong>Обработка персональных данных</strong> — любое действие или совокупность действий с персональными данными, совершаемых с использованием средств автоматизации или без их использования.</span></li>
+          <li><span class="legal-list-marker">—</span><span><strong>Оператор</strong> — лицо, самостоятельно или совместно с другими лицами организующее и (или) осуществляющее обработку персональных данных, а также определяющее цели обработки, состав данных и действия с ними.</span></li>
+          <li><span class="legal-list-marker">—</span><span><strong>Пользователь</strong> — любой посетитель Сайта, в том числе законный представитель несовершеннолетнего пользователя.</span></li>
+          <li><span class="legal-list-marker">—</span><span><strong>Cookie</strong> — небольшой фрагмент данных, отправляемый сервером и сохраняемый на устройстве пользователя, который веб-браузер отправляет серверу при каждом обращении.</span></li>
+        </ul>
+      </article>
+
+      <article class="legal-block" id="collect">
+        <div class="legal-block-num">03</div>
+        <h2>Какие данные мы <em>собираем</em></h2>
+        <p>В рамках работы Сайта, в том числе при заполнении форм заявки на пробное занятие, прохождении квиза подбора программы и записи на консультацию, мы можем обрабатывать следующие персональные данные:</p>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span>Имя пользователя (или имя и возраст ребёнка, если заявку оставляет родитель / законный представитель);</span></li>
+          <li><span class="legal-list-marker">—</span><span>Номер контактного телефона;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Адрес электронной почты (при указании);</span></li>
+          <li><span class="legal-list-marker">—</span><span>Ответы, данные в ходе прохождения квиза подбора программы обучения;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Технические данные: IP-адрес, тип и версия браузера, данные файлов cookie, сведения о посещённых страницах, дата и время обращения к Сайту.</span></li>
+        </ul>
+        <div class="legal-note">
+          <p>Мы не собираем и не запрашиваем на Сайте специальные категории персональных данных (сведения о состоянии здоровья, национальности, религиозных убеждениях и т. п.).</p>
+        </div>
+      </article>
+
+      <article class="legal-block" id="purpose">
+        <div class="legal-block-num">04</div>
+        <h2>Цели обработки <em>данных</em></h2>
+        <p>Персональные данные пользователей обрабатываются исключительно в следующих целях:</p>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span>Обработка заявок на бесплатное пробное занятие и обратная связь с пользователем;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Подбор индивидуальной программы обучения по результатам квиза;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Информирование о расписании занятий, турнирах и иных организационных вопросах;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Заключение и исполнение договора об оказании образовательных услуг;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Улучшение качества работы Сайта, удобства его использования, разработка новых сервисов;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Проведение статистических и иных исследований на основе обезличенных данных.</span></li>
+        </ul>
+      </article>
+
+      <article class="legal-block" id="legal-basis">
+        <div class="legal-block-num">05</div>
+        <h2>Правовые основания <em>обработки</em></h2>
+        <p>Обработка персональных данных осуществляется на основании ст. 6 Федерального закона № 152-ФЗ «О персональных данных», а именно: с согласия субъекта персональных данных на обработку его персональных данных, а также в целях исполнения договора, стороной которого либо выгодоприобретателем по которому является субъект персональных данных.</p>
+        <p>Согласие на обработку персональных данных предоставляется пользователем путём проставления соответствующей отметки при заполнении формы заявки на Сайте либо путём совершения иных действий, однозначно свидетельствующих о согласии (нажатие кнопки отправки формы).</p>
+      </article>
+
+      <article class="legal-block" id="processing">
+        <div class="legal-block-num">06</div>
+        <h2>Порядок обработки <em>и защиты</em></h2>
+        <p>Обработка персональных данных пользователей осуществляется с использованием баз данных, находящихся на территории Российской Федерации, любым законным способом, в том числе с использованием средств автоматизации.</p>
+        <p>Мы принимаем необходимые организационные и технические меры для защиты персональных данных от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц, включая:</p>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span>Ограничение доступа к персональным данным сотрудников, не участвующих в их обработке;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Использование шифрования каналов передачи данных (SSL/TLS) при передаче данных через формы Сайта;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Регулярную оценку эффективности принимаемых мер защиты.</span></li>
+        </ul>
+      </article>
+
+      <article class="legal-block" id="transfer">
+        <div class="legal-block-num">07</div>
+        <h2>Передача данных <em>третьим лицам</em></h2>
+        <p>Мы не передаём персональные данные пользователей третьим лицам, за исключением случаев, прямо предусмотренных законодательством Российской Федерации, а также следующих ситуаций:</p>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span>Привлечение подрядчиков и сервисов (хостинг-провайдеры, сервисы аналитики, CRM-системы, сервисы рассылок и телефонии) для целей, указанных в разделе 4, при условии, что такие лица приняли на себя обязательства по обеспечению конфиденциальности данных;</span></li>
+          <li><span class="legal-list-marker">—</span><span>По законному запросу государственных органов в порядке, установленном законодательством РФ.</span></li>
+        </ul>
+      </article>
+
+      <article class="legal-block" id="storage">
+        <div class="legal-block-num">08</div>
+        <h2>Сроки хранения <em>данных</em></h2>
+        <p>Персональные данные обрабатываются и хранятся в течение срока, необходимого для достижения целей их обработки, указанных в разделе 4 настоящей Политики, но не более срока действия согласия пользователя на обработку персональных данных, если иной срок не установлен законодательством РФ.</p>
+        <p>Пользователь вправе в любой момент отозвать согласие на обработку персональных данных, направив соответствующее обращение по контактам, указанным в разделе 13.</p>
+      </article>
+
+      <article class="legal-block" id="rights">
+        <div class="legal-block-num">09</div>
+        <h2>Права субъекта <em>персональных данных</em></h2>
+        <p>Пользователь имеет право:</p>
+        <ul class="legal-list">
+          <li><span class="legal-list-marker">—</span><span>Получать информацию, касающуюся обработки его персональных данных;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Требовать уточнения, блокирования или уничтожения его персональных данных в случае, если они являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Отозвать своё согласие на обработку персональных данных;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Обжаловать действия или бездействие Оператора в Роскомнадзор или в судебном порядке;</span></li>
+          <li><span class="legal-list-marker">—</span><span>Осуществлять иные права, предусмотренные законодательством РФ.</span></li>
+        </ul>
+      </article>
+
+      <article class="legal-block" id="cookies">
+        <div class="legal-block-num">10</div>
+        <h2>Файлы cookie <em>и аналитика</em></h2>
+        <p>Сайт использует файлы cookie и аналогичные технологии (в том числе сервисы веб-аналитики) для обеспечения работы функций Сайта, анализа посещаемости и улучшения пользовательского опыта. Пользователь может отключить сохранение cookie в настройках своего браузера, однако в этом случае отдельные функции Сайта могут быть недоступны.</p>
+      </article>
+
+      <article class="legal-block" id="children">
+        <div class="legal-block-num">11</div>
+        <h2>Данные <em>несовершеннолетних</em></h2>
+        <p>Сайт предназначен для использования совершеннолетними пользователями — родителями и законными представителями детей, желающих записаться на обучение. Заполняя форму заявки с указанием имени и возраста ребёнка, пользователь подтверждает, что действует как законный представитель несовершеннолетнего и даёт согласие на обработку соответствующих данных на изложенных в Политике условиях.</p>
+      </article>
+
+      <article class="legal-block" id="changes">
+        <div class="legal-block-num">12</div>
+        <h2>Изменение <em>Политики</em></h2>
+        <p>Мы вправе вносить изменения в настоящую Политику. Новая редакция Политики вступает в силу с момента её размещения на Сайте, если иное не предусмотрено новой редакцией. Действующая редакция всегда доступна на данной странице.</p>
+      </article>
+
+      <article class="legal-block" id="contacts">
+        <div class="legal-block-num">13</div>
+        <h2>Контакты <em>оператора</em></h2>
+        <p>По всем вопросам, связанным с обработкой персональных данных, а также для реализации прав, указанных в разделе 9, пользователь может обратиться к Оператору любым из способов ниже.</p>
+        <div class="legal-contacts">
+          <div class="legal-contact">
+            <div class="legal-contact-label">Телефон</div>
+            <a href="tel:+79991517790">+7 (999) 151-77-90</a>
+          </div>
+          <div class="legal-contact">
+            <div class="legal-contact-label">Email</div>
+            <a href="mailto:uchimboyko@mail.ru">uchimboyko@mail.ru</a>
+          </div>
+          <div class="legal-contact">
+            <div class="legal-contact-label">Режим работы</div>
+            <span>Ежедневно, 8:00–20:00 (МСК)</span>
+          </div>
+          <div class="legal-contact">
+            <div class="legal-contact-label">Приём заявок</div>
+            <span>Круглосуточно, без выходных</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3 class="footer-brand"><em>Учим</em>&nbsp;Бойко</h3>
+        <p class="footer-tag">1-я международная детская спортивная школа шахмат. Онлайн-обучение детей от&nbsp;4&nbsp;лет у&nbsp;мастеров FIDE и&nbsp;кандидатов в&nbsp;мастера спорта России.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Школа</h4>
+        <ul>
+          <li><a href="index.html#about">О школе</a></li>
+          <li><a href="index.html#coaches">Тренеры</a></li>
+          <li><a href="index.html#stories">Достижения</a></li>
+          <li><a href="index.html#quiz">Подбор программы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Обучение</h4>
+        <ul>
+          <li><a href="index.html#pricing">Тарифы</a></li>
+          <li><a href="index.html#cta">Пробное занятие</a></li>
+          <li><a href="#">Турниры</a></li>
+          <li><a href="#">Личный кабинет</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79991517790">+7&nbsp;(999) 151-77-90</a></li>
+          <li><a href="mailto:uchimboyko@mail.ru">uchimboyko@mail.ru</a></li>
+          <li>Режим работы ежедневно с 8.00 до 20.00 (МСК)</li>
+          <li>Принимаем заявки круглосуточно без выходных</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Учим Бойко. Все права защищены.</span>
+      <span><a href="personal_data_policy.html">Политика конфиденциальности</a> · <a href="#">Публичная оферта</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+</script>
+</body>
+</html>
