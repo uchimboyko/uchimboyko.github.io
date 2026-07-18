@@ -36,166 +36,167 @@
 
 
 
-<!-- LPTracker code start-->
-<!-- part 1 start -->
-<script>(()=>{'use strict';
-const DELAY_MS=3000,                              // 3‑секундная задержка ПОСЛЕ жеста
-      IGNORE_TAG=/^(STYLE|SCRIPT|NOSCRIPT|TEXTAREA|IFRAME|OPTION)$/i,
-      PHONE_SRC='(?:\\+7|8)(?:\\D*\\d){10}\\b',
-      phoneRe=()=>new RegExp(PHONE_SRC,'g'),
-      isIgnored=e=>e.parentNode&&IGNORE_TAG.test(e.parentNode.nodeName),
-      originals=new Map;
+  <!-- LPTracker code start-->
+  <!-- part 1 start -->
+  <script>(() => {
+      'use strict';
+      const DELAY_MS = 3000,                              // 3‑секундная задержка ПОСЛЕ жеста
+        IGNORE_TAG = /^(STYLE|SCRIPT|NOSCRIPT|TEXTAREA|IFRAME|OPTION)$/i,
+        PHONE_SRC = '(?:\\+7|8)(?:\\D*\\d){10}\\b',
+        phoneRe = () => new RegExp(PHONE_SRC, 'g'),
+        isIgnored = e => e.parentNode && IGNORE_TAG.test(e.parentNode.nodeName),
+        originals = new Map;
 
-let interacted=false,timerId=null;                // состояние и ID задержки
+      let interacted = false, timerId = null;                // состояние и ID задержки
 
-function maskPhones(root){
-  let changed=false;
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-  for(let node;node=walker.nextNode();){
-    if(isIgnored(node)) continue;
-    const re=phoneRe();
-    if(!re.test(node.nodeValue)) continue;
-    if(!originals.has(node)) originals.set(node,node.nodeValue);
-    // заменяем цифры, скобки, дефисы и ТЕПЕРЬ ещё и «+» на пробелы
-    node.nodeValue=node.nodeValue.replace(
-      re,
-      m=>m.replace(/[0-9()+\-\u2010-\u2015]/g,' ')
-    );
-    changed=true;
-  }
-  return changed;
-}
+      function maskPhones(root) {
+        let changed = false;
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        for (let node; node = walker.nextNode();) {
+          if (isIgnored(node)) continue;
+          const re = phoneRe();
+          if (!re.test(node.nodeValue)) continue;
+          if (!originals.has(node)) originals.set(node, node.nodeValue);
+          // заменяем цифры, скобки, дефисы и ТЕПЕРЬ ещё и «+» на пробелы
+          node.nodeValue = node.nodeValue.replace(
+            re,
+            m => m.replace(/[0-9()+\-\u2010-\u2015]/g, ' ')
+          );
+          changed = true;
+        }
+        return changed;
+      }
 
-function hasPhones(root){
-  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-  for(let node;node=walker.nextNode();){
-    if(isIgnored(node)) continue;
-    if(phoneRe().test(node.nodeValue)) return true;
-  }
-  return false;
-}
+      function hasPhones(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        for (let node; node = walker.nextNode();) {
+          if (isIgnored(node)) continue;
+          if (phoneRe().test(node.nodeValue)) return true;
+        }
+        return false;
+      }
 
-function restoreAll(){
-  originals.forEach((value,node)=>{
-    if(node.isConnected) node.nodeValue=value;
-  });
-}
+      function restoreAll() {
+        originals.forEach((value, node) => {
+          if (node.isConnected) node.nodeValue = value;
+        });
+      }
 
-function removeUserListeners(){
-  window.removeEventListener('click',onInteract,true);
-  window.removeEventListener('scroll',onInteract,true);
-  window.removeEventListener('touchstart',onInteract,true);
-  window.removeEventListener('mousemove',onInteract,true);
-}
+      function removeUserListeners() {
+        window.removeEventListener('click', onInteract, true);
+        window.removeEventListener('scroll', onInteract, true);
+        window.removeEventListener('touchstart', onInteract, true);
+        window.removeEventListener('mousemove', onInteract, true);
+      }
 
-function checkAndFinish(){
-  if(!hasPhones(document.body)) restoreAll();      // телефоны так и не вернулись — восстановить
-  removeUserListeners();
-}
+      function checkAndFinish() {
+        if (!hasPhones(document.body)) restoreAll();      // телефоны так и не вернулись — восстановить
+        removeUserListeners();
+      }
 
-function onInteract(evt){
-  if(interacted||!(evt&&evt.isTrusted)) return;
-  interacted=true;
-  removeUserListeners();                          // больше слушатели не нужны
-  timerId=setTimeout(checkAndFinish,DELAY_MS);    // ждём 3 с и проверяем
-}
+      function onInteract(evt) {
+        if (interacted || !(evt && evt.isTrusted)) return;
+        interacted = true;
+        removeUserListeners();                          // больше слушатели не нужны
+        timerId = setTimeout(checkAndFinish, DELAY_MS);    // ждём 3 с и проверяем
+      }
 
-function addUserListeners(){
-  window.addEventListener('click',onInteract,{once:true,capture:true});
-  window.addEventListener('scroll',onInteract,{once:true,capture:true,passive:true});
-  window.addEventListener('touchstart',onInteract,{once:true,capture:true,passive:true});
-  window.addEventListener('mousemove',onInteract,{once:true,capture:true});
-}
+      function addUserListeners() {
+        window.addEventListener('click', onInteract, { once: true, capture: true });
+        window.addEventListener('scroll', onInteract, { once: true, capture: true, passive: true });
+        window.addEventListener('touchstart', onInteract, { once: true, capture: true, passive: true });
+        window.addEventListener('mousemove', onInteract, { once: true, capture: true });
+      }
 
-function run(){
-  if(!maskPhones(document.body)) return;          // ничего не маскировали — выходим
-  addUserListeners();                             // ждём первого жеста человека
-}
+      function run() {
+        if (!maskPhones(document.body)) return;          // ничего не маскировали — выходим
+        addUserListeners();                             // ждём первого жеста человека
+      }
 
-document.readyState==='loading'
-  ? document.addEventListener('DOMContentLoaded',run)
-  : run();
-})();</script>
-<!-- part 1 end -->
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', run)
+        : run();
+    })();</script>
+  <!-- part 1 end -->
 
-<!-- part 2 start -->
-<script>(function(){
-'use strict';
+  <!-- part 2 start -->
+  <script>(function () {
+      'use strict';
 
-/* Единственная ссылка в коде — ручка на бренд-домене. Доменов виджета тут нет. */
-var HOST_API    = 'https://my.lptracker.ru/land/widget/';
-var PATH_PARSER = '/lpt_widget/out/parser.min.js';
-var PATH_KICK   = '/lpt_widget/kick-widget.js';
+      /* Единственная ссылка в коде — ручка на бренд-домене. Доменов виджета тут нет. */
+      var HOST_API = 'https://my.lptracker.ru/land/widget/';
+      var PATH_PARSER = '/lpt_widget/out/parser.min.js';
+      var PATH_KICK = '/lpt_widget/kick-widget.js';
 
-window.addEventListener('load',function(){
+      window.addEventListener('load', function () {
 
-  var botRe = /bot|crawler|spider|crawling|facebook|pingdom|headless|phantom|slurp|mediapartners|adsbot|duckduckbot|bingpreview|pinterest|yandex|baiduspider|googlebot/i;
-  var isBot = navigator.webdriver || botRe.test(navigator.userAgent);
-  var started = false;
+        var botRe = /bot|crawler|spider|crawling|facebook|pingdom|headless|phantom|slurp|mediapartners|adsbot|duckduckbot|bingpreview|pinterest|yandex|baiduspider|googlebot/i;
+        var isBot = navigator.webdriver || botRe.test(navigator.userAgent);
+        var started = false;
 
-  function loadScript(src){
-    var s = document.createElement('script');
-    s.type = 'text/javascript'; s.async = true; s.src = src;
-    document.head.appendChild(s);
-  }
+        function loadScript(src) {
+          var s = document.createElement('script');
+          s.type = 'text/javascript'; s.async = true; s.src = src;
+          document.head.appendChild(s);
+        }
 
-  /* JSONP к ручке за живым доменом (через тег script, минуя CORS) */
-  function fetchHost(cb){
-    var name = 'lptWgCb_' + Math.random().toString(36).slice(2);
-    var s, t;
-    function cleanup(){
-      clearTimeout(t);
-      try { delete window[name]; } catch(e){ window[name] = undefined; }
-      if (s && s.parentNode) s.parentNode.removeChild(s);
-    }
-    window[name] = function(data){ cleanup(); cb(data && data.host); };
-    t = setTimeout(function(){ cleanup(); cb(null); }, 5000);
-    s = document.createElement('script');
-    s.async = true;
-    s.src = HOST_API + '?cb=' + name;
-    s.onerror = function(){ cleanup(); cb(null); };
-    document.head.appendChild(s);
-  }
+        /* JSONP к ручке за живым доменом (через тег script, минуя CORS) */
+        function fetchHost(cb) {
+          var name = 'lptWgCb_' + Math.random().toString(36).slice(2);
+          var s, t;
+          function cleanup() {
+            clearTimeout(t);
+            try { delete window[name]; } catch (e) { window[name] = undefined; }
+            if (s && s.parentNode) s.parentNode.removeChild(s);
+          }
+          window[name] = function (data) { cleanup(); cb(data && data.host); };
+          t = setTimeout(function () { cleanup(); cb(null); }, 5000);
+          s = document.createElement('script');
+          s.async = true;
+          s.src = HOST_API + '?cb=' + name;
+          s.onerror = function () { cleanup(); cb(null); };
+          document.head.appendChild(s);
+        }
 
-  function init(){
-    if(started) return;
-    started = true;
-    removeUserListeners();
+        function init() {
+          if (started) return;
+          started = true;
+          removeUserListeners();
 
-    fetchHost(function(host){
-      if(!host) return;
-      window.lptWg = window.lptWg || {};
-      window.lptWg.projectId = 118142;
-      window.lptWg.parser = true;
-      loadScript('https://' + host + PATH_PARSER);
-      loadScript('https://' + host + PATH_KICK);
-    });
-  }
+          fetchHost(function (host) {
+            if (!host) return;
+            window.lptWg = window.lptWg || {};
+            window.lptWg.projectId = 118142;
+            window.lptWg.parser = true;
+            loadScript('https://' + host + PATH_PARSER);
+            loadScript('https://' + host + PATH_KICK);
+          });
+        }
 
-  function onUserEvent(evt){
-    if(evt && evt.isTrusted) init();
-  }
+        function onUserEvent(evt) {
+          if (evt && evt.isTrusted) init();
+        }
 
-  const userEvents = ['keydown','scroll','touchstart','click','mousemove','mousedown'];
+        const userEvents = ['keydown', 'scroll', 'touchstart', 'click', 'mousemove', 'mousedown'];
 
-  function addUserListeners(){
-    userEvents.forEach(function(ev){
-      window.addEventListener(ev,onUserEvent,{passive:true,once:true});
-    });
-  }
+        function addUserListeners() {
+          userEvents.forEach(function (ev) {
+            window.addEventListener(ev, onUserEvent, { passive: true, once: true });
+          });
+        }
 
-  function removeUserListeners(){
-    userEvents.forEach(function(ev){
-      window.removeEventListener(ev,onUserEvent);
-    });
-  }
+        function removeUserListeners() {
+          userEvents.forEach(function (ev) {
+            window.removeEventListener(ev, onUserEvent);
+          });
+        }
 
-  if(!isBot) addUserListeners(); // только для живых людей
-});
-})();</script>
-<!-- part 2 end -->
-<!-- LPTracker code end-->
-			   
+        if (!isBot) addUserListeners(); // только для живых людей
+      });
+    })();</script>
+  <!-- part 2 end -->
+  <!-- LPTracker code end-->
+
 
 
 
@@ -4305,7 +4306,7 @@ window.addEventListener('load',function(){
     /* ============================================================
        CURRENCY SWITCHER
        ============================================================ */
-    (function() {
+    (function () {
       // Цены для разных тарифов
       const pricesData = {
         dollar: {
@@ -4337,21 +4338,21 @@ window.addEventListener('load',function(){
         const urlParams = new URLSearchParams(window.location.search);
         let hash = window.location.hash.replace('#', '');
         let rawCurrency = urlParams.get('utm_data') || urlParams.get('cur') || hash;
-        
+
         let targetCurrency = null;
         if (rawCurrency) {
-            rawCurrency = rawCurrency.toLowerCase();
-            if (['dollar', 'usd'].includes(rawCurrency)) targetCurrency = 'dollar';
-            else if (['evro', 'euro', 'eur'].includes(rawCurrency)) targetCurrency = 'evro';
+          rawCurrency = rawCurrency.toLowerCase();
+          if (['dollar', 'usd'].includes(rawCurrency)) targetCurrency = 'dollar';
+          else if (['evro', 'euro', 'eur'].includes(rawCurrency)) targetCurrency = 'evro';
         }
 
         if (!targetCurrency) {
-            targetCurrency = sessionStorage.getItem('currency');
+          targetCurrency = sessionStorage.getItem('currency');
         }
 
         // Если валюта не распознана (или это рубли) - ничего не делаем
         if (!targetCurrency || !pricesData[targetCurrency]) return;
-        
+
         // Сохраняем выбор
         sessionStorage.setItem('currency', targetCurrency);
 
@@ -4359,27 +4360,27 @@ window.addEventListener('load',function(){
         if (!tariffsNodes || !tariffsNodes.length) return;
 
         const currencyInfo = pricesData[targetCurrency];
-        
+
         tariffsNodes.forEach((tariffNode, index) => {
           const tariffData = currencyInfo.tariffs[index];
           if (!tariffData) return;
 
-          const options = tariffNode.querySelectorAll('.tariff-opt');
+          const options = tariffNode.querySelectorAll('.tariff-options li');
           options.forEach((optNode, optIndex) => {
             if (optIndex >= lessonCounts.length) return;
-            
+
             const price = tariffData.prices[optIndex];
             const save = tariffData.savings[optIndex];
             const lessons = lessonCounts[optIndex];
-            
+
             const perLessonPrice = price / lessons;
             // Форматируем: дробные до двух знаков, целые без нулей
             const formattedPerLessonStr = Number.isInteger(perLessonPrice) ? perLessonPrice : (Math.round(perLessonPrice * 100) / 100).toFixed(2);
-            
+
             const priceEl = optNode.querySelector('.tariff-opt-price');
             const perLessonEl = optNode.querySelector('.tariff-opt-per-lesson');
             const saveEl = optNode.querySelector('.tariff-opt-save');
-            
+
             if (priceEl) {
               priceEl.textContent = `${currencyInfo.symbol}\u00A0${price}`;
             }
