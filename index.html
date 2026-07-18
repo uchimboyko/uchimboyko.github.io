@@ -3483,7 +3483,7 @@ window.addEventListener('load',function(){
         <article class="coach-feature reveal">
           <div class="coach-feature-portrait"><img src="гоголев.jpg" alt="Артемий Гоголев"></div>
           <h3 class="coach-feature-name">Артемий <em>Гоголев</em></h3>
-          <div class="coach-feature-role">Международный мастер · Главный тренер</div>
+          <div class="coach-feature-role">Мастер FIDE · Главный тренер</div>
 
           <div class="coach-stats">
             <div>
@@ -3515,7 +3515,7 @@ window.addEventListener('load',function(){
                 <span class="roster-avatar"><img src="гоголев.jpg" alt="Гоголев А."></span>
                 <span>Гоголев А.</span>
               </span>
-              <span class="roster-rating">Международный мастер</span>
+              <span class="roster-rating">Мастер FIDE</span>
             </li>
             <li>
               <span class="roster-list-left">
@@ -3628,6 +3628,9 @@ window.addEventListener('load',function(){
     </div>
   </section>
 
+  <!-- ============================================================
+     PRICING
+     ============================================================ -->
   <section class="section pricing" id="pricing">
     <div class="container">
       <div class="section-header reveal">
@@ -4297,6 +4300,104 @@ window.addEventListener('load',function(){
           }
         });
       });
+    })();
+
+    /* ============================================================
+       CURRENCY SWITCHER
+       ============================================================ */
+    (function() {
+      // Цены для разных тарифов
+      const pricesData = {
+        dollar: {
+          symbol: '$',
+          tariffs: [
+            // 1) Детский
+            { prices: [75, 125, 315], savings: [null, 25, 135] },
+            // 2) Групповые
+            { prices: [69, 110, 276], savings: [null, 28, 138] },
+            // 3) Индивидуально
+            { prices: [95, 158, 394], savings: [null, 32, 176] }
+          ]
+        },
+        evro: {
+          symbol: '€',
+          tariffs: [
+            // 1) Детский
+            { prices: [58, 105, 264], savings: [null, 11, 84] },
+            // 2) Групповые
+            { prices: [55, 89, 232], savings: [null, 21, 98] },
+            // 3) Индивидуально
+            { prices: [80, 132, 330], savings: [null, 28, 150] }
+          ]
+        }
+      };
+      const lessonCounts = [4, 8, 24]; // количество занятий в 3 опциях
+
+      function updateCurrency() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let hash = window.location.hash.replace('#', '');
+        let rawCurrency = urlParams.get('utm_data') || urlParams.get('cur') || hash;
+        
+        let targetCurrency = null;
+        if (rawCurrency) {
+            rawCurrency = rawCurrency.toLowerCase();
+            if (['dollar', 'usd'].includes(rawCurrency)) targetCurrency = 'dollar';
+            else if (['evro', 'euro', 'eur'].includes(rawCurrency)) targetCurrency = 'evro';
+        }
+
+        if (!targetCurrency) {
+            targetCurrency = sessionStorage.getItem('currency');
+        }
+
+        // Если валюта не распознана (или это рубли) - ничего не делаем
+        if (!targetCurrency || !pricesData[targetCurrency]) return;
+        
+        // Сохраняем выбор
+        sessionStorage.setItem('currency', targetCurrency);
+
+        const tariffsNodes = document.querySelectorAll('.tariffs .tariff');
+        if (!tariffsNodes || !tariffsNodes.length) return;
+
+        const currencyInfo = pricesData[targetCurrency];
+        
+        tariffsNodes.forEach((tariffNode, index) => {
+          const tariffData = currencyInfo.tariffs[index];
+          if (!tariffData) return;
+
+          const options = tariffNode.querySelectorAll('.tariff-opt');
+          options.forEach((optNode, optIndex) => {
+            if (optIndex >= lessonCounts.length) return;
+            
+            const price = tariffData.prices[optIndex];
+            const save = tariffData.savings[optIndex];
+            const lessons = lessonCounts[optIndex];
+            
+            const perLessonPrice = price / lessons;
+            // Форматируем: дробные до двух знаков, целые без нулей
+            const formattedPerLessonStr = Number.isInteger(perLessonPrice) ? perLessonPrice : (Math.round(perLessonPrice * 100) / 100).toFixed(2);
+            
+            const priceEl = optNode.querySelector('.tariff-opt-price');
+            const perLessonEl = optNode.querySelector('.tariff-opt-per-lesson');
+            const saveEl = optNode.querySelector('.tariff-opt-save');
+            
+            if (priceEl) {
+              priceEl.textContent = `${currencyInfo.symbol}\u00A0${price}`;
+            }
+            if (perLessonEl) {
+              perLessonEl.textContent = `${currencyInfo.symbol}\u00A0${formattedPerLessonStr} / урок`;
+            }
+            if (saveEl && save !== null) {
+              saveEl.textContent = `выгода ${currencyInfo.symbol}\u00A0${save}`;
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateCurrency);
+      } else {
+        updateCurrency();
+      }
     })();
   </script>
 </body>
