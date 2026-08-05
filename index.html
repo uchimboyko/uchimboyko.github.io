@@ -4095,11 +4095,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           quizFd.append('format', fmt || '');
           quizFd.append('recommended_tariff', tariff || '');
 
+         window.dataLayer = window.dataLayer || [];
           fetch('https://formspree.io/f/xbdvwyza', {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: quizFd
-          }).catch(() => { });
+          })
+            .then((res) => {
+              if (!res.ok) throw new Error('http_' + res.status);
+              window.dataLayer.push({
+                event: 'lead_success',
+                form_id: 'quizForm',
+                lead_source: 'quiz',
+                quiz_age: age || '',
+                quiz_goal: goal || '',
+                quiz_tariff: tariff || ''
+              });
+            })
+            .catch((err) => {
+              window.dataLayer.push({
+                event: 'lead_error',
+                form_id: 'quizForm',
+                error_type: String(err && err.message || 'network')
+              });
+            });
 
           document.getElementById('resultTag').textContent = tag;
           const displayName = answers.name || 'друг';
@@ -4135,53 +4154,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* ============================================================
        CTA form
        ============================================================ */
-    (function () {
-      const form = document.getElementById('ctaForm');
-      const phoneInput = document.getElementById('cta-phone');
-      if (!form || !phoneInput) return;
+ (function () {
+  const form = document.getElementById('ctaForm');
+  const phoneInput = document.getElementById('cta-phone');
+  if (!form || !phoneInput) return;
 
-      function isPhoneValid(value) {
-        return value.replace(/\D/g, '').length >= 10;
-      }
+  window.dataLayer = window.dataLayer || [];
+  let sending = false;
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!isPhoneValid(phoneInput.value)) {
-          phoneInput.setCustomValidity('Укажите номер телефона');
-          phoneInput.reportValidity();
-          phoneInput.setCustomValidity('');
-          return;
-        }
+  function isPhoneValid(value) {
+    return value.replace(/\D/g, '').length >= 10;
+  }
 
-        const submitBtn = form.querySelector('.submit-btn');
-        const originalBtnText = submitBtn ? submitBtn.textContent : '';
-        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Отправляем...'; }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (sending) return;
 
-        const ctaFd = new FormData();
-        ctaFd.append('form_name', 'Заявка на пробное занятие — Учим Бойко');
-        ctaFd.append('age', document.getElementById('cta-age').value);
-        ctaFd.append('experience', document.getElementById('cta-exp').value);
-        ctaFd.append('name', document.getElementById('cta-name').value);
-        ctaFd.append('phone', phoneInput.value);
+    if (!isPhoneValid(phoneInput.value)) {
+      window.dataLayer.push({ event: 'lead_invalid', form_id: 'ctaForm', reason: 'phone' });
+      phoneInput.setCustomValidity('Укажите номер телефона');
+      phoneInput.reportValidity();
+      phoneInput.setCustomValidity('');
+      return;
+    }
 
-        fetch('https://formspree.io/f/xbdvwyza', {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: ctaFd
-        })
-          .then(() => {
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-            form.reset();
-          })
-          .catch(() => {
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-            form.reset();
-          })
-          .finally(() => {
-            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
-          });
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+    sending = true;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Отправляем...'; }
+
+    const ctaFd = new FormData();
+    ctaFd.append('form_name', 'Заявка на пробное занятие — Учим Бойко');
+    ctaFd.append('age', document.getElementById('cta-age').value);
+    ctaFd.append('experience', document.getElementById('cta-exp').value);
+    ctaFd.append('name', document.getElementById('cta-name').value);
+    ctaFd.append('phone', phoneInput.value);
+
+    fetch('https://formspree.io/f/xbdvwyza', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: ctaFd
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('http_' + res.status);
+        window.dataLayer.push({
+          event: 'lead_success',
+          form_id: 'ctaForm',
+          lead_source: 'cta_form'
+        });
+        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+        form.reset();
+      })
+      .catch((err) => {
+        window.dataLayer.push({
+          event: 'lead_error',
+          form_id: 'ctaForm',
+          error_type: String(err && err.message || 'network')
+        });
+        alert('Не удалось отправить заявку. Позвоните нам: +7 (999) 151-77-90');
+      })
+      .finally(() => {
+        sending = false;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
       });
-    })();
+  });
+})();
 
     /* ============================================================
        COACHES INTERACTIVE
