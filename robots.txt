@@ -1,0 +1,8 @@
+# Public pages and rendering assets are crawlable.
+User-agent: *
+Disallow: /backup-
+Disallow: /*.bak
+Disallow: /%D1%80%D0%BA/
+
+# Keep noindex pages crawlable so robots can read their meta tag.
+Sitemap: https://uchimboyko.online/sitemap.xml
